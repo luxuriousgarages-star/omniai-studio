@@ -1,0 +1,1172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;OmniAI Studio — One workspace for the best AI&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Create content, research anything, plan your day, get weather-based outfit ideas, and more — in one simple AI workspace." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#070A12;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--panel:#0D1220;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--panel2:#0A0F1C;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#EAF0FF;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#A9B4D0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--faint:#6D7898;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand:#7C5CFF;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand2:#2FE6A6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--warn:#FFCF5C;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--danger:#FF5C7C;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--border:rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 18px 60px rgba(0,0,0,.55);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius:18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,body{height:100%}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(1200px 700px at 20% 0%, rgba(124,92,255,.18), transparent 50%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(900px 600px at 80% 10%, rgba(47,230,166,.12), transparent 55%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(700px 500px at 50% 90%, rgba(255,207,92,.08), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.45;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-x:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap{max-width:1160px;margin:0 auto;padding:24px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topbar{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:sticky; top:0; z-index:50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(7,10,18,.58);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid rgba(255,255,255,.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topbar .inner{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:14px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:1160px;margin:0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:34px;height:34px;border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(124,92,255,1), rgba(47,230,166,1));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 30px rgba(124,92,255,.18);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo:after{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content:"";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute; inset:9px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(7,10,18,.45);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.20);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav{display:flex; gap:16px; align-items:center; flex-wrap:wrap; color:var(--muted); font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav a{opacity:.9;text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav a:hover{opacity:1;color:var(--text)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:650;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex; gap:8px; align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{border-color:rgba(255,255,255,.25); background: rgba(255,255,255,.08)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.primary{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(124,92,255,1), rgba(47,230,166,1));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#070A12;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 14px 40px rgba(124,92,255,.22);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.primary:hover{filter:brightness(1.03)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex; align-items:center; gap:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px; border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:56px 0 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.heroGrid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1.1fr .9fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:stretch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 980px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.heroGrid{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.nav{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:12px 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:52px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.02;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-1px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 540px){h1{font-size:40px}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sub{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:62ch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.heroActions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panelInner{padding:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panelTitle{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panelTitle h3{margin:0;font-size:14px;letter-spacing:.2px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kpi{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(7,10,18,.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kpi .big{font-size:18px; font-weight:800}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kpi .small{color:var(--muted); font-size:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.divider{height:1px;background:rgba(255,255,255,.09); margin:14px 0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.muted{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.faint{color:var(--faint)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section{padding:22px 0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section h2{margin:0 0 10px; font-size:22px; letter-spacing:-.2px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 980px){.cards{grid-template-columns:1fr}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(13,18,32,.70);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card:before{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content:"";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute; inset:-2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(700px 280px at 15% 0%, rgba(124,92,255,.18), transparent 45%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>radial-gradient(700px 280px at 85% 20%, rgba(47,230,166,.12), transparent 45%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity:.7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card &gt; *{position:relative}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card h3{margin:0 0 8px; font-size:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card p{margin:0; color:var(--muted); font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tagRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag{font-size:12px;color:var(--muted);border:1px solid rgba(255,255,255,.12);padding:6px 8px;border-radius:999px;background:rgba(255,255,255,.05)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.demoGrid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1fr 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 980px){.demoGrid{grid-template-columns:1fr}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input, select, textarea{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:11px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(7,10,18,.45);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outline:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>textarea{min-height:120px; resize:vertical}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 540px){.row{grid-template-columns:1fr}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.out{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space:pre-wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(7,10,18,.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height:140px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini{font-size:12px;color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:28px 0 46px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; right:18px; bottom:18px; z-index:9999;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(13,18,32,.92);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 360px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast strong{display:block;margin-bottom:4px;color:var(--text)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kbd{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:2px 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.previewRibbon{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; left:-60px; top:22px; z-index:9998;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: rotate(-35deg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,207,92,.92);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #070A12;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 14px 40px rgba(0,0,0,.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hidden{display:none !important}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.smallLink{color:var(--muted); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.smallLink:hover{color:var(--text); border-bottom-color:rgba(255,255,255,.45)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bullets{margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bullets li{margin:6px 0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ok{color:var(--brand2);font-weight:700}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.warn{color:var(--warn);font-weight:700}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="previewRibbon" id="previewRibbon"&gt;PREVIEW&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="topbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="logo" aria-hidden="true"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>OmniAI Studio</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mini"&gt;One workspace • best models • minimal effort&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="nav" aria-label="Primary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#features"&gt;Features&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#demo"&gt;Live demo&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#how"&gt;How it works&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#faq"&gt;FAQ&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="display:flex; gap:10px; align-items:center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn" id="btnTutorial" title="Tutorial"&gt;&lt;span&gt;🎓&lt;/span&gt;&lt;span&gt;Guide&lt;/span&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn primary" id="btnCTA" title="Get started"&gt;&lt;span&gt;⚡&lt;/span&gt;&lt;span&gt;Build with AI&lt;/span&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="heroGrid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="pill"&gt;✅ Fast • Accurate • Simple • Private-by-design options&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1&gt;Everything you expect from the greatest AI—&lt;span style="color:var(--brand2)"&gt;in one place&lt;/span&gt;.&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="sub"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Create social content, research any topic with citations, plan your day, get outfit inspiration from live weather,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>generate images/video, and integrate your tools—without learning code.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="heroActions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Try the live demo</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn" id="btnCopyDeploy"&gt;Copy deploy steps&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn" href="#features"&gt;See what’s inside&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul class="bullets"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;span class="ok"&gt;What people expect&lt;/span&gt;: accuracy, transparency/citations, personalization, privacy, and integrations—baked into the structure.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;span class="warn"&gt;No hype traps&lt;/span&gt;: the landing page uses realistic claims and “guardrails” language for trust.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panelInner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="panelTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Quick preview dashboard&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="pill" id="modePill"&gt;Mode: Deploy&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="kpis"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="kpi"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="big" id="kpiWeather"&gt;—&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="small"&gt;Local weather&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="kpi"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="big" id="kpiOutfit"&gt;—&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="small"&gt;Outfit suggestion&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="kpi"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="big" id="kpiSearch"&gt;—&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="small"&gt;Live research&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Preview mode adds helpful overlays + test panels (only you see it).</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Use: &lt;span class="kbd"&gt;?mode=preview&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnGetLocation"&gt;📍 Use my location&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnRunAll"&gt;▶ Run full demo&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;a class="btn" href="#demo"&gt;Open demo panel&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Integrations (positioning): “Connect to Chat + Search + Images + Video + Calendars + Docs with one click.”</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Actual model connections require API keys on your backend (safe + standard).</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="features" class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;What’s included&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cards"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Content Studio&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Generate social posts, captions, hooks, scripts, carousels, and newsletters with brand voice presets.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Instagram&lt;/span&gt;&lt;span class="tag"&gt;YouTube&lt;/span&gt;&lt;span class="tag"&gt;LinkedIn&lt;/span&gt;&lt;span class="tag"&gt;Threads&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Research with “live web”&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Search + summarize + cite sources. Demo uses Wikipedia search (no key). Swap to real search APIs later.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Citations&lt;/span&gt;&lt;span class="tag"&gt;Source list&lt;/span&gt;&lt;span class="tag"&gt;Outline → draft&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Weather → Outfit Inspiration&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Uses your location and Open-Meteo forecast (free) to suggest outfits for heat/rain/wind.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Live forecast&lt;/span&gt;&lt;span class="tag"&gt;Layering&lt;/span&gt;&lt;span class="tag"&gt;Rain-ready&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Daily analysis + planning&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Turn notes into a plan, track habits, and generate a “today summary” with priority + time blocks.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;To-do&lt;/span&gt;&lt;span class="tag"&gt;Planner&lt;/span&gt;&lt;span class="tag"&gt;Focus blocks&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Astrology tools (starter)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Zodiac + quick chart preview (simple). Can be upgraded to full natal charts via an astrology API.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Zodiac&lt;/span&gt;&lt;span class="tag"&gt;Chart preview&lt;/span&gt;&lt;span class="tag"&gt;Daily vibe&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Best models, one interface&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Positioned as “model router”: pick the best AI for the job (writing, coding, search, images, video).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;GPT-5.2&lt;/span&gt;&lt;span class="tag"&gt;Claude Sonnet 4.5&lt;/span&gt;&lt;span class="tag"&gt;Gemini&lt;/span&gt;&lt;span class="tag"&gt;Perplexity&lt;/span&gt;&lt;span class="tag"&gt;Sora-class video&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="demo" class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Live demo (runs locally in your browser)&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="demoGrid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panelInner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="panelTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;1) Weather → Outfit&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="pill" id="locStatus"&gt;Location: not set&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Manual city (optional)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input id="cityInput" placeholder="e.g., Chandigarh, Mumbai, Delhi" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;&amp;nbsp;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn" id="btnCityLookup"&gt;🔎 Use city&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnForecast"&gt;⛅ Get forecast&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnOutfit"&gt;🧥 Suggest outfit&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="out" id="weatherOut"&gt;Click “Get forecast”.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;Powered by Open-Meteo (no API key). Uses browser geolocation if you allow it.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panelInner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="panelTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;2) Research + Content&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="pill"&gt;Demo search: Wikipedia&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Topic&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input id="topicInput" value="How to build better study habits" /&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row" style="margin-top:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Goal&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="goalSelect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;Research summary with sources&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;Instagram carousel outline&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;YouTube short script&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;LinkedIn post (professional)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Model router (label only)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="modelSelect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;GPT-5.2 (general)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;Claude Sonnet 4.5 (writing)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;Gemini Pro (multimodal)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;Perplexity-style (search + citations)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;option&gt;Emergent (agent workflows)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnSearch"&gt;🌐 Live search&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnGenerate"&gt;✍️ Generate draft&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="out" id="researchOut"&gt;Click “Live search”.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>For a true “real-time web search” product, you’d plug in a server-side search API (to avoid browser CORS + protect keys).</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="demoGrid" style="margin-top:14px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panelInner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="panelTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;3) Daily planner&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="pill"&gt;Quick analyzer&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Paste your “daily stuff” (notes, tasks, reminders)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;textarea id="dailyInput" placeholder="Example:</p>
+<p class="p1">- Submit assignment by 6pm</p>
+<p class="p1">- Gym 7:30</p>
+<p class="p1">- Call mom</p>
+<p class="p1">- Revise 2 RC passages</p>
+<p class="p1">- Buy notebook"&gt;&lt;/textarea&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnPlan"&gt;🗓 Make a plan&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnClearDaily"&gt;🧹 Clear&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="out" id="planOut"&gt;Paste notes and click “Make a plan”.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panelInner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="panelTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;4) Astrology (starter)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="pill"&gt;No API needed&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Date of birth&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input id="dob" type="date" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Time (optional)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input id="tob" type="time" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnZodiac"&gt;✨ Get zodiac&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="btnAstroNote"&gt;🪐 Daily vibe&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="out" id="astroOut"&gt;Pick a date and click “Get zodiac”.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Upgrade path: connect a proper ephemeris / astrology API for full natal charts + houses.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="how" class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;How this becomes a real product (no-code for you)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cards"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Phase 1 (today): landing + demos&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;You deploy this static site free. It already does weather/outfit + planning + demo research locally.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;&lt;span class="tag"&gt;Free hosting&lt;/span&gt;&lt;span class="tag"&gt;Fast&lt;/span&gt;&lt;span class="tag"&gt;Shareable&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Phase 2: real integrations&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Add a tiny backend that safely stores API keys and routes requests to the model/search providers.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;&lt;span class="tag"&gt;Keys protected&lt;/span&gt;&lt;span class="tag"&gt;Model router&lt;/span&gt;&lt;span class="tag"&gt;Usage limits&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Phase 3: “one click” workflows&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Templates + automations: “Research → outline → post → schedule” with minimal user effort.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tagRow"&gt;&lt;span class="tag"&gt;Agent flows&lt;/span&gt;&lt;span class="tag"&gt;Tutorials&lt;/span&gt;&lt;span class="tag"&gt;Onboarding&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="panel" style="margin-top:14px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panelInner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panelTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;What users usually expect from top AI tools (and how this page reflects it)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;trust + utility&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul class="bullets"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;b&gt;Transparency &amp; citations&lt;/b&gt; for research-style answers (built into the “Research” section).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;b&gt;Good UX&lt;/b&gt;: simple navigation, strong CTAs, social-proof placeholders, FAQ (landing-page best practice).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;b&gt;Privacy &amp; control&lt;/b&gt;: explain what’s local vs. sent to providers; keep keys server-side.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;b&gt;Integrations&lt;/b&gt;: connect calendars/docs/social schedulers so users don’t do repetitive work.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>The structure above follows common SaaS landing patterns (clear value prop, feature blocks, demo, trust elements, FAQ). It also reflects the importance of transparency/design for trust and research + citations expectations in “answer engines.”<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="faq" class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;FAQ&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cards"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Is this free?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Yes. The landing page can be hosted free. Real model integrations may require paid APIs later.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Is the “real-time web search” real?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;This demo uses Wikipedia search (no key). A production version uses a server-side search provider.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Can I make it “preview only for me”?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Use &lt;span class="kbd"&gt;?mode=preview&lt;/span&gt; to show the preview ribbon + extra controls. Deploy mode hides them.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="footer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panelInner" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="font-weight:800;color:var(--text)"&gt;OmniAI Studio&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;Landing + demos now. Integrations later via safe backend routing.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="display:flex;gap:10px;flex-wrap:wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn" href="#demo"&gt;Open demo&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn primary" id="btnDeployNow"&gt;Deploy free&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="margin-top:12px" class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Disclaimer: Provider names are used for compatibility positioning. This template does not imply affiliation.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="toast" id="toast"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;strong id="toastTitle"&gt;Copied&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="toastBody" class="mini"&gt;—&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Small helpers</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">const $ = (id) =&gt; document.getElementById(id);</p>
+<p class="p2"><br></p>
+<p class="p1">function toast(title, body){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("toastTitle").textContent = title;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("toastBody").textContent = body;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("toast").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>clearTimeout(window.__toastTimer);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.__toastTimer = setTimeout(()=&gt; $("toast").style.display="none", 3200);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function qs(name){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url = new URL(window.location.href);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return url.searchParams.get(name);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Preview / Deploy modes</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">const isPreview = (qs("mode") || "").toLowerCase() === "preview";</p>
+<p class="p1">if (isPreview){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("previewRibbon").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("modePill").textContent = "Mode: Preview";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("modePill").style.borderColor = "rgba(255,207,92,.45)";</p>
+<p class="p1">} else {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("modePill").textContent = "Mode: Deploy";</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnCTA").addEventListener("click", ()=&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("demo").scrollIntoView({behavior:"smooth"});</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>First-time tutorial (simple)</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">function openTutorial(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const msg =</p>
+<p class="p1">`Quick tutorial:</p>
+<p class="p1">1) Click “📍 Use my location” → allow location → get weather.</p>
+<p class="p1">2) Click “⛅ Get forecast” → then “🧥 Suggest outfit”.</p>
+<p class="p1">3) Use “🌐 Live search” → then “✍️ Generate draft”.</p>
+<p class="p1">4) Paste daily notes → “🗓 Make a plan”.</p>
+<p class="p1">5) Preview mode: add ?mode=preview</p>
+<p class="p2"><br></p>
+<p class="p1">Tip: Deploy free via Netlify/Vercel/GitHub Pages (button below).`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>alert(msg);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("omni_tutorial_seen","1");</p>
+<p class="p1">}</p>
+<p class="p1">$("btnTutorial").addEventListener("click", openTutorial);</p>
+<p class="p1">if (!localStorage.getItem("omni_tutorial_seen")) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// gentle: do not auto-open; just a toast</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("New here?", "Click “Guide” for a 30-second walkthrough.");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Weather (Open-Meteo)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>- Geolocation OR city -&gt; geocoding -&gt; forecast</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">let state = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lat: null,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lon: null,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>place: null,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>weather: null,</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">function wmoToText(code){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Basic WMO mapping for common codes</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const m = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>0:"Clear",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>1:"Mainly clear",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>2:"Partly cloudy",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>3:"Overcast",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>45:"Fog",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>48:"Rime fog",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>51:"Light drizzle",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>53:"Drizzle",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>55:"Dense drizzle",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>61:"Slight rain",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>63:"Rain",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>65:"Heavy rain",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>71:"Slight snow",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>73:"Snow",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>75:"Heavy snow",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>80:"Rain showers",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>81:"Rain showers",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>82:"Violent showers",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>95:"Thunderstorm",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>96:"Thunderstorm + hail",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>99:"Thunderstorm + heavy hail"</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return m[code] || ("Weather code " + code);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function outfitSuggestion(w){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!w) return "—";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const t = w.tempC;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const wind = w.windKph;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rain = w.precipMm;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>let base = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// temperature bands</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (t &gt;= 32) base.push("Breathable tee / linen shirt", "lightweight bottoms");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if (t &gt;= 26) base.push("Tee or polo", "light chinos/jeans");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if (t &gt;= 18) base.push("Long-sleeve + light jacket", "jeans/chinos");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if (t &gt;= 10) base.push("Sweater + jacket", "warm pants");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else base.push("Thermal layer + heavy jacket", "warm pants");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// rain/wind additions</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (rain &gt;= 1) base.push("compact umbrella / rain jacket", "water-resistant shoes");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (wind &gt;= 20) base.push("windbreaker layer");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// accessories</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (t &gt;= 30) base.push("cap + sunscreen");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (t &lt;= 14) base.push("warm socks");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>return base.join(" • ");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">async function reverseGeocode(lat, lon){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Use Open-Meteo reverse endpoint (no key)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${encodeURIComponent(lat)}&amp;longitude=${encodeURIComponent(lon)}&amp;language=en&amp;format=json`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = await fetch(url);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!r.ok) throw new Error("Reverse geocode failed");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const data = await r.json();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const p = (data &amp;&amp; data.results &amp;&amp; data.results[0]) ? data.results[0] : null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!p) return null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return `${p.name}${p.admin1 ? ", " + p.admin1 : ""}${p.country ? ", " + p.country : ""}`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">async function cityGeocode(q){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&amp;count=1&amp;language=en&amp;format=json`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = await fetch(url);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!r.ok) throw new Error("City lookup failed");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const data = await r.json();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const p = (data &amp;&amp; data.results &amp;&amp; data.results[0]) ? data.results[0] : null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!p) return null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return {lat:p.latitude, lon:p.longitude, place:`${p.name}${p.admin1 ? ", " + p.admin1 : ""}${p.country ? ", " + p.country : ""}`};</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">async function getForecast(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(state.lat == null || state.lon == null) throw new Error("Location not set");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url =</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(state.lat)}&amp;longitude=${encodeURIComponent(state.lon)}&amp;current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&amp;timezone=auto`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = await fetch(url);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!r.ok) throw new Error("Forecast failed");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const data = await r.json();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const c = data.current;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const w = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tempC: Math.round(c.temperature_2m),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>feelsC: Math.round(c.apparent_temperature),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>humidity: c.relative_humidity_2m,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>precipMm: c.precipitation,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>windKph: Math.round(c.wind_speed_10m),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>code: c.weather_code,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>summary: wmoToText(c.weather_code),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>time: c.time</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.weather = w;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("weatherOut").textContent =</p>
+<p class="p1">`Place: ${state.place || "—"}</p>
+<p class="p1">Now: ${w.summary}</p>
+<p class="p1">Temp: ${w.tempC}°C (feels ${w.feelsC}°C)</p>
+<p class="p1">Humidity: ${w.humidity}%</p>
+<p class="p1">Precipitation: ${w.precipMm} mm</p>
+<p class="p1">Wind: ${w.windKph} km/h</p>
+<p class="p1">Local time: ${w.time}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("kpiWeather").textContent = `${w.tempC}°C`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("kpiOutfit").textContent = "Ready";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return w;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnGetLocation").addEventListener("click", async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("locStatus").textContent = "Location: requesting…";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>navigator.geolocation.getCurrentPosition(async (pos)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.lat = pos.coords.latitude;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.lon = pos.coords.longitude;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.place = await reverseGeocode(state.lat, state.lon) || "Your location";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>$("locStatus").textContent = "Location: " + state.place;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toast("Location set", state.place);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>$("locStatus").textContent = "Location: set (no name)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toast("Location set", "Couldn’t resolve place name.");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}, (err)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("locStatus").textContent = "Location: denied";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>toast("Location not allowed", "You can type a city instead.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}, {enableHighAccuracy:true, timeout:9000});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Location error", e.message || "Unknown error");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnCityLookup").addEventListener("click", async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const q = $("cityInput").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!q){ toast("Enter a city", "Example: Chandigarh"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("locStatus").textContent = "Location: searching…";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const res = await cityGeocode(q);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!res){ $("locStatus").textContent = "Location: not found"; return; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.lat = res.lat; state.lon = res.lon; state.place = res.place;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("locStatus").textContent = "Location: " + state.place;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("City set", state.place);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("City lookup failed", e.message || "Try another city name.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnForecast").addEventListener("click", async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("weatherOut").textContent = "Loading forecast…";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>await getForecast();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("kpiSearch").textContent = "Ready";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Forecast updated", "Now click “Suggest outfit”.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("weatherOut").textContent = "Error: " + (e.message || "Could not load forecast");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Forecast error", e.message || "Set location first.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnOutfit").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const s = outfitSuggestion(state.weather);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!state.weather){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("No forecast yet", "Click “Get forecast” first.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("weatherOut").textContent += `\n\nOutfit: ${s}`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("kpiOutfit").textContent = "✔";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("Outfit ready", "Based on current conditions.");</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>“Real-time web search” demo (Wikipedia)</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">async function wikiSearch(q){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url = `https://en.wikipedia.org/w/api.php?action=query&amp;list=search&amp;srsearch=${encodeURIComponent(q)}&amp;format=json&amp;origin=*`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = await fetch(url);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!r.ok) throw new Error("Search failed");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const data = await r.json();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const items = (data.query &amp;&amp; data.query.search) ? data.query.search.slice(0,5) : [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return items.map(it =&gt; ({</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: it.title,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>snippet: it.snippet.replace(/&lt;[^&gt;]+&gt;/g,''),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>link: `https://en.wikipedia.org/wiki/${encodeURIComponent(it.title.replace(/ /g,'_'))}`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}));</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnSearch").addEventListener("click", async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const topic = $("topicInput").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!topic){ toast("Enter a topic", "Try: “best skincare routine”"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("researchOut").textContent = "Searching…";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const results = await wikiSearch(topic);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!results.length){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("researchOut").textContent = "No results found. Try a different topic.";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("researchOut").textContent =</p>
+<p class="p1">`Top sources (demo):</p>
+<p class="p1">${results.map((r,i)=&gt; `${i+1}) ${r.title}\n <span class="Apple-converted-space">  </span>${r.snippet}\n <span class="Apple-converted-space">  </span>${r.link}`).join("\n\n")}</p>
+<p class="p2"><br></p>
+<p class="p1">Next: click “Generate draft” to turn this into content.`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("kpiSearch").textContent = "✔";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Sources found", "Demo citations are ready.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("researchOut").textContent = "Error: " + (e.message || "Search error");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Search error", e.message || "Try again.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">function generateDraft(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const topic = $("topicInput").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const goal = $("goalSelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const model = $("modelSelect").value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const base =</p>
+<p class="p1">`Draft (template):</p>
+<p class="p1">Topic: ${topic}</p>
+<p class="p1">Goal: ${goal}</p>
+<p class="p1">Model routing label: ${model}</p>
+<p class="p2"><br></p>
+<p class="p1">`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (goal.includes("Research summary")){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return base +</p>
+<p class="p1">`Summary:</p>
+<p class="p1">- Define the topic in 3–5 lines.</p>
+<p class="p1">- Explain why it matters.</p>
+<p class="p1">- Break down key concepts (3–6 bullets).</p>
+<p class="p1">- Common misconceptions.</p>
+<p class="p1">- Practical takeaways.</p>
+<p class="p2"><br></p>
+<p class="p1">Citations:</p>
+<p class="p1">- Use the source list above (swap to a real web search API for production).`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (goal.includes("Instagram carousel")){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return base +</p>
+<p class="p1">`Instagram carousel outline (7 slides):</p>
+<p class="p1">1) Hook: “Stop doing X if you want Y”</p>
+<p class="p1">2) The problem in 1 sentence</p>
+<p class="p1">3) Why it happens (simple explanation)</p>
+<p class="p1">4) The 3-step fix</p>
+<p class="p1">5) Example / mini case</p>
+<p class="p1">6) Mistakes to avoid</p>
+<p class="p1">7) CTA: “Save this + comment ‘PLAN’ for a checklist”</p>
+<p class="p2"><br></p>
+<p class="p1">Caption:</p>
+<p class="p1">- 2-line hook</p>
+<p class="p1">- 4 bullet insights</p>
+<p class="p1">- 1 question CTA`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (goal.includes("YouTube short")){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return base +</p>
+<p class="p1">`YouTube Short (≈25–35 sec):</p>
+<p class="p1">0–2s: Pattern break hook</p>
+<p class="p1">2–10s: The problem</p>
+<p class="p1">10–24s: 3 quick tips</p>
+<p class="p1">24–30s: Strong CTA + promise</p>
+<p class="p2"><br></p>
+<p class="p1">On-screen text:</p>
+<p class="p1">- Keep it under 6 words per beat.`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>return base +</p>
+<p class="p1">`LinkedIn post:</p>
+<p class="p1">- 1-line contrarian hook</p>
+<p class="p1">- 3 short paragraphs (story → insight → framework)</p>
+<p class="p1">- 3 bullet takeaways</p>
+<p class="p1">- One question CTA`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnGenerate").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const topic = $("topicInput").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!topic){ toast("Enter a topic", "Then generate."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const draft = generateDraft();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("researchOut").textContent = draft;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("Draft generated", "Edit the template to match your voice.");</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Daily planner (local)</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">function makePlan(text){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lines = text.split("\n").map(s=&gt;s.trim()).filter(Boolean);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const tasks = lines.map(l =&gt; l.replace(/^-+\s*/,''));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!tasks.length) return "Add a few items first.";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// naive priority: deadlines + keywords</p>
+<p class="p1"><span class="Apple-converted-space">  </span>function score(t){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let s = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (/\b(today|6pm|5pm|deadline|submit|exam|due)\b/i.test(t)) s += 3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (/\b(call|meeting|class)\b/i.test(t)) s += 2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (/\bgym|workout\b/i.test(t)) s += 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sorted = [...tasks].sort((a,b)=&gt; score(b)-score(a));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const top = sorted.slice(0,3);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rest = sorted.slice(3);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>return `Today plan:</p>
+<p class="p1">Top priorities:</p>
+<p class="p1">- ${top.join("\n- ")}</p>
+<p class="p2"><br></p>
+<p class="p1">Time blocks (suggested):</p>
+<p class="p1">- 60–90 min deep work: priority #1</p>
+<p class="p1">- 30–45 min: priority #2</p>
+<p class="p1">- 20–30 min: quick tasks / admin</p>
+<p class="p1">- 45–60 min: study / practice</p>
+<p class="p1">- 30–45 min: health / movement</p>
+<p class="p2"><br></p>
+<p class="p1">Remaining:</p>
+<p class="p1">${rest.length ? ("- " + rest.join("\n- ")) : "- (none)"}</p>
+<p class="p2"><br></p>
+<p class="p1">Rule:</p>
+<p class="p1">Do the hardest thing first.`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnPlan").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const t = $("dailyInput").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("planOut").textContent = makePlan(t);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("Plan ready", "Adjust time blocks to your schedule.");</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnClearDaily").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("dailyInput").value = "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("planOut").textContent = "Paste notes and click “Make a plan”.";</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Astrology starter</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">function zodiacSign(d){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// d is Date</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const m = d.getMonth()+1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const day = d.getDate();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const z = [</p>
+<p class="p1"><span class="Apple-converted-space">    </span>["Capricorn", 1, 19], ["Aquarius", 2, 18], ["Pisces", 3, 20],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>["Aries", 4, 19], ["Taurus", 5, 20], ["Gemini", 6, 20],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>["Cancer", 7, 22], ["Leo", 8, 22], ["Virgo", 9, 22],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>["Libra", 10, 22], ["Scorpio", 11, 21], ["Sagittarius", 12, 21],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>["Capricorn", 12, 31]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// find the first sign whose end date &gt;= given date</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (const [name, endM, endD] of z){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (m &lt; endM || (m === endM &amp;&amp; day &lt;= endD)) return name;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return "Capricorn";</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnZodiac").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const v = $("dob").value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!v){ toast("Pick your DOB", "Then click again."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const d = new Date(v + "T00:00:00");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sign = zodiacSign(d);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("astroOut").textContent =</p>
+<p class="p1">`Zodiac (sun sign): ${sign}</p>
+<p class="p2"><br></p>
+<p class="p1">Chart preview (starter):</p>
+<p class="p1">- Sun sign: ${sign}</p>
+<p class="p1">- For full natal chart (houses, aspects), connect an astrology API.`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("Zodiac ready", sign);</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnAstroNote").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const v = $("dob").value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!v){ toast("Pick your DOB", "Then get daily vibe."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const d = new Date(v + "T00:00:00");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sign = zodiacSign(d);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const notes = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Aries":"Take the first step. Short sprint, clear finish.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Taurus":"Stabilize. Clean up tasks and lock in routines.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Gemini":"Learn + share. Keep it light, keep it moving.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Cancer":"Protect focus. Choose fewer tasks, do them well.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Leo":"Show your work. One bold move beats ten small ones.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Virgo":"Systems win. Fix one workflow and you win the week.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Libra":"Balance. Decide fast, then commit.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Scorpio":"Deep work. One obsession, no distractions.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Sagittarius":"Explore. New angle, new idea, new momentum.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Capricorn":"Execute. Prioritize outcomes over effort.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Aquarius":"Innovate. Try a smarter tool or shortcut.",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"Pisces":"Reset. Creativity + rest = your edge."</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("astroOut").textContent =</p>
+<p class="p1">`Daily vibe (${sign}):</p>
+<p class="p1">${notes[sign] || "Keep it simple: focus, finish, recover."}</p>
+<p class="p2"><br></p>
+<p class="p1">Mini ritual:</p>
+<p class="p1">- 10 min plan</p>
+<p class="p1">- 40 min deep work</p>
+<p class="p1">- 5 min reset`;</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Deploy steps copier</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">const deployText =</p>
+<p class="p1">`FREE DEPLOY OPTIONS (pick one):</p>
+<p class="p2"><br></p>
+<p class="p1">1) Netlify (easiest)</p>
+<p class="p1">- Go to netlify.com</p>
+<p class="p1">- Drag &amp; drop this index.html onto “Sites”</p>
+<p class="p1">- Netlify gives you a live link instantly</p>
+<p class="p2"><br></p>
+<p class="p1">2) Vercel</p>
+<p class="p1">- Go to vercel.com → New Project → Import Git repo</p>
+<p class="p1">- Or create a static project and upload</p>
+<p class="p2"><br></p>
+<p class="p1">3) GitHub Pages</p>
+<p class="p1">- Create a repo</p>
+<p class="p1">- Add index.html</p>
+<p class="p1">- Settings → Pages → Deploy from main branch</p>
+<p class="p2"><br></p>
+<p class="p1">Preview mode:</p>
+<p class="p1">Add ?mode=preview to your URL (only you need to know it).`;</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnCopyDeploy").addEventListener("click", async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>await navigator.clipboard.writeText(deployText);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Copied deploy steps", "Paste anywhere.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast("Copy failed", "Your browser blocked clipboard access.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">$("btnDeployNow").addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>alert(deployText);</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>Run full demo</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">$("btnRunAll").addEventListener("click", async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Try forecast if we already have location set</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(state.lat != null &amp;&amp; state.lon != null){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("weatherOut").textContent = "Loading forecast…";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>await getForecast();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const s = outfitSuggestion(state.weather);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("weatherOut").textContent += `\n\nOutfit: ${s}`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("kpiOutfit").textContent = "✔";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){ /* ignore */ }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Trigger a search</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("researchOut").textContent = "Searching…";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const results = await wikiSearch($("topicInput").value.trim() || "AI assistants");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("researchOut").textContent =</p>
+<p class="p1">`Top sources (demo):</p>
+<p class="p1">${results.map((r,i)=&gt; `${i+1}) ${r.title}\n <span class="Apple-converted-space">  </span>${r.snippet}\n <span class="Apple-converted-space">  </span>${r.link}`).join("\n\n")}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("kpiSearch").textContent = "✔";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch(e){ /* ignore */ }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("Demo completed", "Weather + search panels updated.");</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------------------------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>KPI defaults</p>
+<p class="p1">---------------------------- */</p>
+<p class="p1">$("kpiWeather").textContent = "—";</p>
+<p class="p1">$("kpiOutfit").textContent = "—";</p>
+<p class="p1">$("kpiSearch").textContent = "—";</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
