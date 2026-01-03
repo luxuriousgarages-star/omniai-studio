@@ -909,12 +909,24 @@
 <p class="p1">});</p>
 <p class="p2"><br></p>
 <p class="p1">function generateDraft(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const topic = $("topicInput").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const goal = $("goalSelect").value;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const model = $("modelSelect").value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const base =</p>
-<p class="p1">`Draft (template):</p>
+<p class="p1"><span class="Apple-converted-space">  async function generateDraft(){
+  const topic = $("topicInput").value.trim();
+  const goal = $("goalSelect").value;
+
+  const prompt = `Create ${goal} about: ${topic}`;
+
+  $("researchOut").textContent = "Thinking...";
+
+  const r = await fetch("/.netlify/functions/ai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt })
+  });
+
+  const data = await r.json();
+  $("researchOut").textContent = data.reply;
+}
+
 <p class="p1">Topic: ${topic}</p>
 <p class="p1">Goal: ${goal}</p>
 <p class="p1">Model routing label: ${model}</p>
